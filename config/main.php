@@ -12,10 +12,7 @@ foreach (scandir(__DIR__ . '/../controllers') as $file) {
             'controller' => $controller,
             'pluralize' => false,
             'tokens' => ['{id}' => '<id:\\w+>'],
-            'extraPatterns' =>  [
-                'OPTIONS,POST login' => 'login',
-                'OPTIONS,GET info' => 'info',
-            ],
+            'extraPatterns' =>  ['OPTIONS,POST login' => 'login'],
         ];
     }
 }
