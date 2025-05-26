@@ -4,6 +4,19 @@ $params = array_merge(
     require __DIR__ . '/params-local.php'
 );
 
+foreach (scandir(__DIR__ . '/../controllers') as $file) {
+    if (preg_match('/^([A-Za-z0-9]+)Controller\.php$/', $file, $matches)) {
+        $controller = strtolower($matches[1]);
+        $rules[] = [
+            'class' => 'yii\rest\UrlRule',
+            'controller' => $controller,
+            'pluralize' => false,
+            'tokens' => ['{id}' => '<id:\\w+>'],
+            'extraPatterns' =>  in_array($controller, ['admin', 'konsumen', 'penjual']) ? ['OPTIONS,POST login' => 'login'] : [],
+        ];
+    }
+}
+
 return [
     'id' => 'api',
     'name' => 'api',
@@ -31,16 +44,7 @@ return [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
             'showScriptName' => false,
-            'rules' => [
-                [
-                    'class' => 'yii\rest\UrlRule', 
-                    'controller' => 'admin',
-                    'pluralize' => false,
-                    'extraPatterns' => [
-                        'OPTIONS,POST login' => 'login',
-                    ],
-                ],
-            ],
+            'rules' => $rules ?? [],
         ]
     ],
     'params' => $params,
