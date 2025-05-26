@@ -18,6 +18,12 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 
 ## Controllers & Endpoints
 
+### SiteController
+**Resource:** `/index`
+- `GET /index` — health check
+
+---
+
 ### AdminController
 **Resource:** `/admin`
 - `GET /admin` — List all admins
@@ -109,6 +115,26 @@ For more details on request/response formats, refer to the Yii2 REST documentati
 ---
 
 # Examples
+
+## SiteController
+
+### `GET /index`
+**Request:**  
+```http
+GET /index
+```
+**Response:**
+```json
+{
+  "message": "site is running.",
+  "data": {
+    "name": "api",
+    "version": "0.1"
+  }
+}
+```
+
+---
 
 ## AdminController
 
