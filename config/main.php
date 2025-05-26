@@ -12,7 +12,10 @@ foreach (scandir(__DIR__ . '/../controllers') as $file) {
             'controller' => $controller,
             'pluralize' => false,
             'tokens' => ['{id}' => '<id:\\w+>'],
-            'extraPatterns' =>  in_array($controller, ['admin', 'konsumen', 'penjual']) ? ['OPTIONS,POST login' => 'login'] : [],
+            'extraPatterns' =>  [
+                'OPTIONS,POST login' => 'login',
+                'OPTIONS,GET info' => 'info',
+            ],
         ];
     }
 }
@@ -23,6 +26,7 @@ return [
     'basePath' => dirname(__DIR__),
     'timeZone' => 'Asia/Jakarta',
     'controllerNamespace' => 'api\controllers',
+    'defaultRoute' => 'site/index',
     'language' => 'id_ID',
     'aliases' => [
         '@api' => dirname(__DIR__),
