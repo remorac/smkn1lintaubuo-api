@@ -24,8 +24,8 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 ## Controllers & Endpoints
 
 ### SiteController
-**Resource:** `/index`
-- `GET /index` — health check
+**Resource:** `/site`
+- `GET /site` — health check
 
 ---
 
