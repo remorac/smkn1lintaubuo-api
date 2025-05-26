@@ -16,6 +16,11 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 
 ---
 
+## URL
+`https://api.smkn1lintaubuo.sch.id`
+
+---
+
 ## Controllers & Endpoints
 
 ### SiteController
