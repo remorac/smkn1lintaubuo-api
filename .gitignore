@@ -1,0 +1,5 @@
+.DS_Store
+vendor
+config/main-local.php
+config/params-local.php
+_examples
