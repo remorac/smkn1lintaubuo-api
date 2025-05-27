@@ -25,4 +25,14 @@ class Konsumen extends \yii\db\ActiveRecord
             [['Password'], 'string', 'min' => 8],
         ];
     }
+
+    public function getPesanans()
+    {
+        return $this->hasMany(\api\models\Pesanan::class, ['Id_Konsumen' => 'Id_Konsumen']);
+    }
+
+    public function extraFields()
+    {
+        return ['pesanans'];
+    }
 }

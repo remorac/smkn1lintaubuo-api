@@ -23,4 +23,20 @@ class PenjualController extends ActiveController
             throw new \yii\web\UnauthorizedHttpException('Invalid email or password');
         }
     }
+
+    public function actionMenu()
+    {
+        $request = \Yii::$app->request;
+        $id_Penjual = $request->post('id_Penjual');
+
+        $menus = \api\models\Menu::find()
+            ->where(['id_Penjual' => $id_Penjual])
+            ->all();
+
+        if ($menus) {
+            return $menus;
+        } else {
+            throw new \yii\web\NotFoundHttpException('No menus found for this seller');
+        }
+    }
 }

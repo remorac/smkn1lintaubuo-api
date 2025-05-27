@@ -24,4 +24,29 @@ class Pesanan extends \yii\db\ActiveRecord
             [['Id_Pesanan'], 'unique'],
         ];
     }
+
+    public function getDetailPesanan()
+    {
+        return $this->hasOne(\api\models\DetailPesanan::class, ['Id_Detail' => 'Id_Detail']);
+    }
+
+    public function getDetailPesanans()
+    {
+        return $this->hasMany(\api\models\DetailPesanan::class, ['Id_Pesanan' => 'Id_Pesanan']);
+    }
+
+    public function getDriver()
+    {
+        return $this->hasOne(\api\models\Driver::class, ['Id_Driver' => 'Id_Driver']);
+    }
+
+    public function getKonsumen()
+    {
+        return $this->hasOne(\api\models\Konsumen::class, ['Id_Konsumen' => 'Id_Konsumen']);
+    }
+
+    public function extraFields()
+    {
+        return ['detailPesanan', 'detailPesanans', 'driver', 'konsumen'];
+    }
 }

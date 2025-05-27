@@ -23,4 +23,14 @@ class Driver extends \yii\db\ActiveRecord
             [['Id_Driver'], 'unique'],
         ];
     }
+
+    public function getPesanans()
+    {
+        return $this->hasMany(\api\models\Pesanan::class, ['Id_Driver' => 'Id_Driver']);
+    }
+
+    public function extraFields()
+    {
+        return ['pesanans'];
+    }
 }

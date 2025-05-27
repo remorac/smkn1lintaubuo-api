@@ -25,4 +25,14 @@ class Penjual extends \yii\db\ActiveRecord
             [['Password'], 'string', 'min' => 8],
         ];
     }
+
+    public function getMenus()
+    {
+        return $this->hasMany(\api\models\Menu::class, ['Id_Penjual' => 'Id_Penjual']);
+    }
+
+    public function extraFields()
+    {
+        return ['menus'];
+    }
 }

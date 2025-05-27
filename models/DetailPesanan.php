@@ -23,4 +23,19 @@ class DetailPesanan extends \yii\db\ActiveRecord
             [['Id_Detail'], 'unique'],
         ];
     }
+
+    public function getMenu()
+    {
+        return $this->hasOne(\api\models\Menu::class, ['Id_Menu' => 'Id_Menu']);
+    }
+
+    public function getPesanan()
+    {
+        return $this->hasOne(\api\models\Pesanan::class, ['Id_Detail' => 'Id_Detail']);
+    }
+
+    public function extraFields()
+    {
+        return ['menu', 'pesanan'];
+    }
 }

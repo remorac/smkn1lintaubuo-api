@@ -44,6 +44,7 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 ### DetailPesananController
 **Resource:** `/detail-pesanan`
 - `GET /detail-pesanan` — List all detail pesanan
+- `GET /detail-pesanan?expand=menu,pesanan` — List all detail pesanan with relations
 - `GET /detail-pesanan/{id}` — View detail pesanan by ID
 - `POST /detail-pesanan` — Create new detail pesanan
 - `PUT /detail-pesanan/{id}` — Update detail pesanan
@@ -55,6 +56,7 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 ### DriverController
 **Resource:** `/driver`
 - `GET /driver` — List all drivers
+- `GET /driver?expand=pesanans` — List all drivers with relations
 - `GET /driver/{id}` — View driver by ID
 - `POST /driver` — Create new driver
 - `PUT /driver/{id}` — Update driver
@@ -66,6 +68,7 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 ### KonsumenController
 **Resource:** `/konsumen`
 - `GET /konsumen` — List all konsumen
+- `GET /konsumen?expand=pesanans` — List all konsumen with relations
 - `GET /konsumen/{id}` — View konsumen by ID
 - `POST /konsumen` — Create new konsumen
 - `PUT /konsumen/{id}` — Update konsumen
@@ -78,6 +81,7 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 ### MenuController
 **Resource:** `/menu`
 - `GET /menu` — List all menu
+- `GET /menu?expand=penjual,detailPesanans` — List all menu with relations
 - `GET /menu/{id}` — View menu by ID
 - `POST /menu` — Create new menu
 - `PUT /menu/{id}` — Update menu
@@ -89,6 +93,7 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 ### PenjualController
 **Resource:** `/penjual`
 - `GET /penjual` — List all penjual
+- `GET /penjual?expand=menus` — List all penjual with relations
 - `GET /penjual/{id}` — View penjual by ID
 - `POST /penjual` — Create new penjual
 - `PUT /penjual/{id}` — Update penjual
@@ -101,6 +106,8 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 ### PesananController
 **Resource:** `/pesanan`
 - `GET /pesanan` — List all pesanan
+- `GET /pesanan?expand=detailPesanans,driver,konsumen` — List all pesanan with relations
+- `GET /pesanan` — List all pesanan with relations
 - `GET /pesanan/{id}` — View pesanan by ID
 - `POST /pesanan` — Create new pesanan
 - `PUT /pesanan/{id}` — Update pesanan

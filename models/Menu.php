@@ -24,4 +24,19 @@ class Menu extends \yii\db\ActiveRecord
             [['Id_Menu'], 'unique'],
         ];
     }
+
+    public function getPenjual()
+    {
+        return $this->hasOne(\api\models\Penjual::class, ['Id_Penjual' => 'Id_Penjual']);
+    }
+
+    public function getDetailPesanans()
+    {
+        return $this->hasMany(\api\models\DetailPesanan::class, ['Id_Menu' => 'Id_Menu']);
+    }
+
+    public function extraFields()
+    {
+        return ['penjual', 'detailPesanans'];
+    }
 }

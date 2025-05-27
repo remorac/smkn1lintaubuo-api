@@ -17,6 +17,14 @@ foreach (scandir(__DIR__ . '/../controllers') as $file) {
     }
 }
 
+$rules = array_merge($rules, [
+    [
+        'class' => 'yii\rest\UrlRule',
+        'controller' => 'detail-pesanan',
+        'pluralize' => false,
+    ],
+]);
+
 return [
     'id' => 'api',
     'name' => 'api',
