@@ -8,6 +8,39 @@ class PenjualController extends ActiveController
 {
     public $modelClass = 'api\models\Penjual';
 
+    public function actions()
+    {
+        $actions = parent::actions();
+        unset($actions['index']);
+        return $actions;
+    }
+
+    public function actionIndex()
+    {
+        $fields = ['Id_Penjual', 'Nama', 'Alamat', 'No_HP', 'Email'];
+        $filter = new \yii\data\ActiveDataFilter([
+            'searchModel' => (new \yii\base\DynamicModel($fields))
+                ->addRule($fields, 'string')
+        ]);
+
+        $filterCondition = null;
+        if ($filter->load(\Yii::$app->request->get())) { 
+            $filterCondition = $filter->build();
+            if ($filterCondition === false) {
+                return $filter;
+            }
+        }
+
+        $query = \api\models\Penjual::find();
+        if ($filterCondition !== null) {
+            $query->andWhere($filterCondition);
+        }
+
+        return new \yii\data\ActiveDataProvider([
+            'query' => $query,
+        ]);
+    }
+
     public function actionLogin()
     {
         $request = \Yii::$app->request;
@@ -21,22 +54,6 @@ class PenjualController extends ActiveController
             return $model;
         } else {
             throw new \yii\web\UnauthorizedHttpException('Invalid email or password');
-        }
-    }
-
-    public function actionMenu()
-    {
-        $request = \Yii::$app->request;
-        $id_Penjual = $request->post('id_Penjual');
-
-        $menus = \api\models\Menu::find()
-            ->where(['id_Penjual' => $id_Penjual])
-            ->all();
-
-        if ($menus) {
-            return $menus;
-        } else {
-            throw new \yii\web\NotFoundHttpException('No menus found for this seller');
         }
     }
 }
