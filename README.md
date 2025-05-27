@@ -46,6 +46,7 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 - `GET /detail-pesanan` — List all detail pesanan
 - `GET /detail-pesanan?expand=menu,pesanan` — List all detail pesanan with relations
 - `GET /detail-pesanan/{id}` — View detail pesanan by ID
+- `GET /detail-pesanan/{id}?expand=menu,pesanan` — View detail pesanan by ID with relations
 - `POST /detail-pesanan` — Create new detail pesanan
 - `PUT /detail-pesanan/{id}` — Update detail pesanan
 - `PATCH /detail-pesanan/{id}` — Partially update detail pesanan
@@ -58,6 +59,7 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 - `GET /driver` — List all drivers
 - `GET /driver?expand=pesanans` — List all drivers with relations
 - `GET /driver/{id}` — View driver by ID
+- `GET /driver/{id}?expand=pesanans` — View driver by ID with relations
 - `POST /driver` — Create new driver
 - `PUT /driver/{id}` — Update driver
 - `PATCH /driver/{id}` — Partially update driver
@@ -70,6 +72,7 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 - `GET /konsumen` — List all konsumen
 - `GET /konsumen?expand=pesanans` — List all konsumen with relations
 - `GET /konsumen/{id}` — View konsumen by ID
+- `GET /konsumen/{id}?expand=pesanans` — View konsumen by ID with relations
 - `POST /konsumen` — Create new konsumen
 - `PUT /konsumen/{id}` — Update konsumen
 - `PATCH /konsumen/{id}` — Partially update konsumen
@@ -83,6 +86,7 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 - `GET /menu` — List all menu
 - `GET /menu?expand=penjual,detailPesanans` — List all menu with relations
 - `GET /menu/{id}` — View menu by ID
+- `GET /menu/{id}?expand=penjual,detailPesanans` — View menu by ID with relations
 - `POST /menu` — Create new menu
 - `PUT /menu/{id}` — Update menu
 - `PATCH /menu/{id}` — Partially update menu
@@ -95,6 +99,7 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 - `GET /penjual` — List all penjual
 - `GET /penjual?expand=menus` — List all penjual with relations
 - `GET /penjual/{id}` — View penjual by ID
+- `GET /penjual/{id}?expand=menus` — View penjual by ID with relations
 - `POST /penjual` — Create new penjual
 - `PUT /penjual/{id}` — Update penjual
 - `PATCH /penjual/{id}` — Partially update penjual
@@ -109,6 +114,7 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 - `GET /pesanan?expand=detailPesanans,driver,konsumen` — List all pesanan with relations
 - `GET /pesanan` — List all pesanan with relations
 - `GET /pesanan/{id}` — View pesanan by ID
+- `GET /pesanan/{id}?expand=detailPesanans,driver,konsumen` — View pesanan by ID with relations
 - `POST /pesanan` — Create new pesanan
 - `PUT /pesanan/{id}` — Update pesanan
 - `PATCH /pesanan/{id}` — Partially update pesanan

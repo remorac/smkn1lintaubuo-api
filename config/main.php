@@ -22,6 +22,7 @@ $rules = array_merge($rules, [
         'class' => 'yii\rest\UrlRule',
         'controller' => 'detail-pesanan',
         'pluralize' => false,
+        'tokens' => ['{id}' => '<id:\\w+>'],
     ],
 ]);
 
