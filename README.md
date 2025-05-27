@@ -287,8 +287,10 @@ DELETE /admin/A003
 **Request:**  
 ```http
 GET /konsumen
-GET /konsumen?expand=pesanans&filter[field_name]=keyword
-GET /konsumen?expand=pesanans&filter[field_name][operator]=keyword
+GET /konsumen?expand=pesanans
+GET /konsumen?filter[{Field_Name}]={keyword}
+GET /konsumen?filter[{Field_Name}][{operator}]={keyword}
+GET /konsumen?expand=pesanans&filter[{Field_Name}]={keyword}
 ```
 **Response:**
 ```json
