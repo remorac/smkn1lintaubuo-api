@@ -32,6 +32,8 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 ### AdminController
 **Resource:** `/admin`
 - `GET /admin` — List all admins
+- `GET /admin?filter[Nama]=admin+satu` — List all admins with equal filter
+- `GET /admin?filter[Nama][like]=satu` — List all admins with like filter
 - `GET /admin/{id}` — View admin by ID
 - `POST /admin` — Create new admin
 - `PUT /admin/{id}` — Update admin
