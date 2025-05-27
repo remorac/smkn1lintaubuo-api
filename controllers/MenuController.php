@@ -17,7 +17,7 @@ class MenuController extends ActiveController
 
     public function actionIndex()
     {
-        $fields = ['Id_Menu', 'Nama', 'Harga', 'Deskripsi'];
+        $fields = ['Id_Menu', 'Id_Penjual', 'Nama_Menu', 'Harga', 'Deskripsi'];
         $filter = new \yii\data\ActiveDataFilter([
             'searchModel' => (new \yii\base\DynamicModel($fields))
                 ->addRule($fields, 'string')

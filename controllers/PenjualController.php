@@ -17,7 +17,7 @@ class PenjualController extends ActiveController
 
     public function actionIndex()
     {
-        $fields = ['Id_Penjual', 'Nama', 'Alamat', 'No_HP', 'Email'];
+        $fields = ['Id_Penjual', 'Nama', 'Email', 'Password', 'Nama_Toko', 'Alamat_Toko'];
         $filter = new \yii\data\ActiveDataFilter([
             'searchModel' => (new \yii\base\DynamicModel($fields))
                 ->addRule($fields, 'string')

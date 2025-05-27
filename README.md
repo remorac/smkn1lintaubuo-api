@@ -32,8 +32,8 @@ For each resource controller, Yii2 REST provides these standard endpoints:
 ### AdminController
 **Resource:** `/admin`
 - `GET /admin` — List all admins
-- `GET /admin?filter[Nama]=admin+satu` — List all admins with equal filter
-- `GET /admin?filter[Nama][like]=satu` — List all admins with like filter
+- `GET /admin?filter[{Field_Name}]={keyword}` — List all admins with equal filter
+- `GET /admin?filter[{Field_Name}][{operator}]={keyword}` — List all admins with like filter
 - `GET /admin/{id}` — View admin by ID
 - `POST /admin` — Create new admin
 - `PUT /admin/{id}` — Update admin
@@ -162,6 +162,8 @@ GET /index
 **Request:**  
 ```http
 GET /admin
+GET /admin?filter[field_name]=keyword
+GET /admin?filter[field_name][operator]=keyword
 ```
 **Response:**
 ```json
@@ -285,6 +287,8 @@ DELETE /admin/A003
 **Request:**  
 ```http
 GET /konsumen
+GET /konsumen?expand=pesanans&filter[field_name]=keyword
+GET /konsumen?expand=pesanans&filter[field_name][operator]=keyword
 ```
 **Response:**
 ```json
@@ -473,5 +477,8 @@ GET /driver
 
 **Note:**  
 - Replace `{id}` with the actual resource ID.
+- Replace `{field_name}` with actual field name.
+- Replace `{operator}` with `like` or other comparison operators except `=`.
+- Replace `{keyword}` with actual keyword.
 - All POST/PUT/PATCH requests use `Content-Type: application/json`.
 - Error responses are shown as examples for login endpoints.
